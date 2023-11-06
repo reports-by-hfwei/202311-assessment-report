@@ -1,0 +1,139 @@
+% research-overview.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{研究背景: 分布式系统}
+  \begin{center}
+    {\large 分布式系统应用广泛}
+  \end{center}
+
+  \begin{columns}
+    \column{0.50\textwidth}
+      \figcap{width = 0.70\textwidth}{figs/coeditor}{协同文本编辑系统}
+    \column{0.50\textwidth}
+      \fig{width = 0.30\textwidth}{figs/wechat} \vspace{-0.60cm}
+      \figcap{width = 0.80\textwidth}{figs/paxosstore-github}{微信与分布式存储系统}
+  \end{columns}
+
+  \begin{center}
+    {\large 分布式系统通常采用\red{``数据副本''}技术提高容错性与可用性}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{研究主题: 分布数据一致性}
+  \begin{center}
+    {\large ``数据副本''技术带来了\red{数据一致性问题}} \\[30pt]
+
+    {\large 研究问题丰富:} \\[6pt]
+    规约、实现、度量、验证、编程模型 \\[20pt]
+
+    博士论文工作偏重于\blue{``实现、度量''}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{研究工作: 分布数据一致性的形式化规约与验证}
+  \begin{center}
+    入职后，研究重心有所调整: \\[6pt]
+    近三年工作偏重\red{``规约、验证''} \\[20pt]
+    \blue{\fbox{工作特色: 使用形式化方法追求真实系统、重要协议的正确性}}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{研究工作: 分布数据一致性的形式化规约与验证}
+  \begin{center}
+    \blue{\fbox{这代表了学术界与工业界的一种共同趋势}}
+  \end{center}
+
+  \begin{columns}
+    \column{0.50\textwidth}
+      \figcap{width = 0.65\textwidth}{figs/lamport-tlaplus}{TLA$^{+}$ 形式化规约语言 {\small (由 Leslie Lamport 开发)}}
+    \column{0.50\textwidth}
+      \figcap{width = 0.60\textwidth}{figs/aws-tla-cacm}{\ncite{Amazon:CACM2015}\violet{\footnotesize @CACM}}
+  \end{columns}
+
+  \begin{quote}
+    {\small
+      \only<1>{``At Amazon, formal methods are \red{routinely} applied to the design of \red{complex real-world software}, including public cloud services.''}
+      \only<2>{``Formal methods are \red{surprisingly feasible} for mainstream software development and \red{give good return on investment}.''}
+      \only<3>{``Formal methods find \red{bugs} in system designs that \red{cannot be found through any other technique we know of}.''}
+    }
+  \end{quote}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{研究工作: 分布数据一致性的形式化规约与验证}
+  \begin{center}
+    \uncover<2->{不同应用、不同场景需要强弱不同的数据一致性\red{规约}}
+  \end{center}
+
+  \begin{figure}[h]
+    \centering
+    \resizebox{0.70\textwidth}{!}{\input{tikz/research-tikz-spec}}
+    % \caption{研究工作概述}
+  \end{figure}
+
+  \vspace{-0.30cm}
+  \uncover<2->{
+    \begin{center}
+      \blue{\fbox{既关注典型的一致性规约、又研究统一的一致性规约框架}}
+    \end{center}
+  }
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{研究工作: 分布数据一致性的形式化规约与验证}
+  \begin{center}
+    \uncover<2->{{形式化\red{验证}方面的挑战:} 不同应用、不同场景产生了不同的协议变体}
+  \end{center}
+
+  \begin{figure}[h]
+    \centering
+    \resizebox{0.85\textwidth}{!}{\input{tikz/research-tikz-verify}}
+    % \caption{研究工作概述}
+  \end{figure}
+
+  \vspace{-0.30cm}
+  \uncover<2->{
+    \setcounter{footnote}{0} 
+    \begin{center}
+      \red{\fbox{使用精化技术研究众多变体的正确性以及它们之间的关系}} \\[3pt]
+      (\footnotesize 精化技术 (Refinement) \ncite{ERefinement:TCS1991} \ncite{Lamport:EATCS2018}: \\ 
+	数据精化 (Data Refinement) + 动作精化 (Action Refinement))
+    \end{center}
+  }
+
+    % \begin{columns}
+    %   \column{0.50\textwidth}
+    %     \fig{width = 0.50\textwidth}{figs/data-refinement}
+    %   \column{0.50\textwidth}
+    %     \fig{width = 0.60\textwidth}{figs/step-refinement}
+    % \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{研究工作: 三份典型工作介绍}
+  \figcap{width = 0.60\textwidth}{figs/research}{研究工作概述}
+
+  \vspace{-0.50cm}
+  \begin{columns}
+    \column{0.10\textwidth}
+    \column{0.80\textwidth}
+    \begin{enumerate}[(1)]
+      \setlength{\itemsep}{6pt}
+      \item \textsl{Jupiter} 协议族的验证 \\
+        {\footnotesize (已发表: \purple{PODC-BA'2018, OPODIS'2018}; 在审: \purple{\footnotesize TSE'2020})}
+      \item TPaxos 协议的验证 {\footnotesize{(在审: \purple{软件学报'2020})}}
+      \item 规约框架 {\footnotesize (正在进行, 基本完成)}
+    \end{enumerate}
+    \column{0.10\textwidth}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%

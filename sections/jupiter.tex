@@ -1,0 +1,117 @@
+% jupiter.tex
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(一): 协同编辑系统中 \textsl{Jupiter} 协议族的正确性与精化}
+  \figcap{width = 0.40\textwidth}{figs/coeditor}{协同文本编辑系统}
+
+  \begin{center}
+    这是``协同工作''~\footnote{如 CSCW: Computer-Supported Cooperative Work and Social Computing} 
+    与 ``人机接口''~\footnote{如 TOCHI: ACM Transactions on Computer-Human Interaction} 领域的重要主题之一 \\
+    \ncite{Ellis:SIGMOD89}~\ncite{Nichols:UIST95}~\ncite{Ressel:CSCW96}~\ncite{Sun:TOCHI98}~\ncite{Xu:CSCW14}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(一): 协同编辑系统中 \textsl{Jupiter} 协议族的正确性与精化}
+  \begin{center}
+    这是``协同工作''与``人机接口''领域的重要主题之一 \\[3pt]
+    然而，这些工作所设计的协同协议大多\red{缺少严格的规约与证明}
+  \end{center}
+
+  \begin{columns}
+    \column{0.35\textwidth}
+      \fig{width = 0.80\textwidth}{figs/attiya}
+      \centerline{\small Hagit Attiya} 
+      \centerline{\small (ACM Fellow)}
+      \centerline{\small (2011 年Dijkstra奖获得者)}
+    \column{0.70\textwidth}
+      \figcap{width = 0.85\textwidth}{figs/attiya-podc-paper}{\ncite{Attiya:PODC16}\violet{\footnotesize @PODC'2016}}
+      \begin{center}
+	提出两个重要规约: 弱列表规约与强列表规约 \\[3pt]
+	证明了 RGA~\ncite{Roh:JPDC11} 满足强列表规约
+      \end{center}
+  \end{columns}
+
+  \pause
+  \begin{center}
+    \fbox{\large \red{猜想:} \textsl{Jupiter}~\ncite{Nichols:UIST95} 协议满足弱列表规约}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(一): 协同编辑系统中 \textsl{Jupiter} 协议族的正确性与精化}
+  \begin{center}
+    \begin{mdframed}[frametitle = {我们证明了如下\red{猜想@PODC'2016}~\ncite{Attiya:PODC16}}, 
+	frametitlerule = true, frametitlebackgroundcolor = brown!20,
+      frametitleaboveskip = 8pt, frametitlebelowskip = 8pt, innertopmargin = 10pt]
+      {\large 实现复制列表的 \blue{\textsl{Jupiter} 协议}~\ncite{Nichols:UIST95}~\red{满足}\blue{弱列表规约}~\ncite{Attiya:PODC16}.
+      ~\footfullcite{Wei:PODC-BA2018}~\footfullcite{Wei:OPODIS2018}} \\[8pt]
+    \end{mdframed}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(一): 协同编辑系统中 \textsl{Jupiter} 协议族的正确性与精化}
+  \fig{frame, width = 0.20\textwidth}{figs/podc-ba-review-0-hl}
+
+  \hfill {\red{该类 (OT 类) 协议的首个严格证明}} \hspace{6em}
+  \vspace{-0.40cm}
+  \fig{frame, width = 0.72\textwidth}{figs/podc-ba-review-1-hl}
+  \vspace{-0.80cm}
+  \hfill {\red{该论文中的结果非常重要}} \hspace{4em}
+
+  \vspace{0.50cm}
+  \hspace{4em} {\red{证明方法 ``is neat'', 很自然}} 
+  \vspace{-0.40cm}
+  \fig{frame, width = 0.72\textwidth}{figs/podc-ba-review-2-hl}
+
+  % \pause
+  % \fig{width = 0.72\textwidth}{figs/podc-ba-review-3-hl}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(一): 协同编辑系统中 \textsl{Jupiter} 协议族的正确性与精化}
+  \begin{center}
+    出于各种原因，\textsl{Jupiter} 协议有众多变体，晦涩难懂、关系纠缠不清
+  \end{center}
+
+  \begin{itemize}
+    \setlength{\itemsep}{10pt}
+    \item 经常不加证明~\ncite{Ressel:CSCW96}
+    \item 证明是错误的~\ncite{Imine:ECSCW2003}
+    \item 勘误也是错的~\ncite{Oster:TR2003}
+  \end{itemize}
+
+  \vspace{0.60cm}
+  \begin{center}
+    \blue{\fbox{目标: 理清它们之间的关系、验证它们的正确性}}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{(一): 协同编辑系统中 \textsl{Jupiter} 协议族的正确性与精化}
+  \begin{center}
+    \blue{\red{发现:} 变体的动作一致，采用的数据结构不同，维护的``信息量''不同}
+  \end{center}
+
+  \setcounter{footnote}{0} 
+  \figcap{width = 0.85\textwidth}{figs/contribution-noref}{\textsl{Jupiter} 协议族的\blue{数据}精化~\footfullcite{Wei:TSE2020}}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+% \begin{frame}{(一): 协同编辑系统中 \textsl{Jupiter} 协议族的正确性与精化}
+%   \figcap{width = 0.40\textwidth}{figs/googleot}{用于 GoogleWave 与 Google Docs 的 GoogleOT 协议示例图}
+% 
+%   \begin{center}
+%     作为 \textsl{Jupiter} 的变体, GoogleOT 采用了 {\it ``stop-and-wait''} 机制 \\[15pt]
+% 
+%     \fbox{\red{发现:} 数据精化不足以刻画 GoogleOT的行为, 列为\blue{未来工作}} 
+%   \end{center}
+% \end{frame}
+%%%%%%%%%%%%%%%%%%%%
