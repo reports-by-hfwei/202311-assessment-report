@@ -1,87 +1,103 @@
 % research-overview.tex
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{研究背景: 分布式系统}
-  \begin{center}
-    {\large 分布式系统应用广泛}
-  \end{center}
+\begin{frame}{}
+	\begin{center}
+		数据库系统与客户程序的正确性是至关重要的
 
-  \begin{columns}
-    \column{0.50\textwidth}
-      \figcap{width = 0.70\textwidth}{figs/coeditor}{协同文本编辑系统}
-    \column{0.50\textwidth}
-      \fig{width = 0.30\textwidth}{figs/wechat} \vspace{-0.60cm}
-      \figcap{width = 0.80\textwidth}{figs/paxosstore-github}{微信与分布式存储系统}
-  \end{columns}
+		\fig{width = 0.65\textwidth}{figs/problems}
 
+		{\small 三个事务一致性验证问题之间的递进关系}
+	\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
   \begin{center}
-    {\large 分布式系统通常采用\red{``数据副本''}技术提高容错性与可用性}
+    \blue{\bf 我们的贡献:} 高效的快照隔离检测算法与工具~\ncite{PolySI:VLDB2023}
+
+    \fig{width = 0.85\textwidth}{figs/polysi-vldb2023}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{研究主题: 分布数据一致性}
+\begin{frame}{}
   \begin{center}
-    {\large ``数据副本''技术带来了\red{数据一致性问题}} \\[30pt]
-
-    {\large 研究问题丰富:} \\[6pt]
-    规约、实现、度量、验证、编程模型 \\[20pt]
-
-    博士论文工作偏重于\blue{``实现、度量''}
+    \fig{width = 0.70\textwidth}{figs/checker-polysi}
   \end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{研究工作: 分布数据一致性的形式化规约与验证}
+\begin{frame}{}
+	\centerline{性能显著优于其它 SI 检测算法; 在腾讯 TDSQL 开发过程初步测试}
+
+	\fig{width = 0.50\textwidth}{figs/polysi-runtime}
+  %\#sessions=20, \#txns/session=100, \#ops/txn=15,   keys=10k,  \%read=50\%, distribution=zipfian.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{center}
+		\polysi{} 以黑盒的方式使用 MonoSAT 求解器
+
+		\vspace{0.30cm}
+		\fig{width = 0.70\textwidth}{figs/solver-blackbox}
+		\vspace{0.30cm}
+
+		未能充分利用 SAT/SMT 搜索框架 (DPLL/CDCL)
+	\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{center}
+		\blue{\bf 当前的探索:} 如何``深度整合 SMT'', 进一步提升算法效率?
+
+		\vspace{0.50cm}
+		\fig{width = 0.70\textwidth}{figs/integrated}
+	\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
   \begin{center}
-    入职后，研究重心有所调整: \\[6pt]
-    近三年工作偏重\red{``规约、验证''} \\[20pt]
-    \blue{\fbox{工作特色: 使用形式化方法追求真实系统、重要协议的正确性}}
+		设计专用的事务一致性理论求解器
+
+	  \fig{width = 0.95\textwidth}{figs/consistency-theory-solver-revised}
   \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{center}
+		``可序列化''一致性模型检测算法性能对比\blue{\bf 初步结果}
+	\end{center}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.48\textwidth]{figs/ser-checker-rubis-twitter-and-tpcc-ntxn10000.png}
+		\includegraphics[width=0.48\textwidth]{figs/ser-checker-chengRW-verification-time-vs-ntxns.png}
+	\end{figure}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  TPDS
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%
-\begin{frame}{研究工作: 分布数据一致性的形式化规约与验证}
-  \begin{center}
-    \blue{\fbox{这代表了学术界与工业界的一种共同趋势}}
-  \end{center}
-
-  \begin{columns}
-    \column{0.50\textwidth}
-      \figcap{width = 0.65\textwidth}{figs/lamport-tlaplus}{TLA$^{+}$ 形式化规约语言 {\small (由 Leslie Lamport 开发)}}
-    \column{0.50\textwidth}
-      \figcap{width = 0.60\textwidth}{figs/aws-tla-cacm}{\ncite{Amazon:CACM2015}\violet{\footnotesize @CACM}}
-  \end{columns}
-
-  \begin{quote}
-    {\small
-      \only<1>{``At Amazon, formal methods are \red{routinely} applied to the design of \red{complex real-world software}, including public cloud services.''}
-      \only<2>{``Formal methods are \red{surprisingly feasible} for mainstream software development and \red{give good return on investment}.''}
-      \only<3>{``Formal methods find \red{bugs} in system designs that \red{cannot be found through any other technique we know of}.''}
-    }
-  \end{quote}
-\end{frame}
-%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{研究工作: 三份典型工作介绍}
-  \figcap{width = 0.60\textwidth}{figs/research}{研究工作概述}
-
-  \vspace{-0.50cm}
-  \begin{columns}
-    \column{0.10\textwidth}
-    \column{0.80\textwidth}
-    \begin{enumerate}[(1)]
-      \setlength{\itemsep}{6pt}
-      \item \textsl{Jupiter} 协议族的验证 \\
-        {\footnotesize (已发表: \purple{PODC-BA'2018, OPODIS'2018}; 在审: \purple{\footnotesize TSE'2020})}
-      \item TPaxos 协议的验证 {\footnotesize{(在审: \purple{软件学报'2020})}}
-      \item 规约框架 {\footnotesize (正在进行, 基本完成)}
-    \end{enumerate}
-    \column{0.10\textwidth}
-  \end{columns}
+\begin{frame}{}
+	\begin{center}
+		\fig{width = 1.00\textwidth}{figs/roadmap}
+	\end{center}
 \end{frame}
 %%%%%%%%%%%%%%%%%%%%
