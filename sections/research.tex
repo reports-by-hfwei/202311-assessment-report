@@ -1,4 +1,98 @@
 % research.tex
 
-\input{sections/research-overview}
-\input{sections/research-summary}
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{center}
+		数据库系统与客户程序的正确性是至关重要的
+
+		\fig{width = 0.65\textwidth}{figs/problems}
+
+		{\small 三个事务一致性验证问题之间的递进关系}
+	\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \blue{\bf 我们的贡献:} 高效的快照隔离检测算法与工具~\ncite{PolySI:VLDB2023}
+
+    \fig{width = 0.85\textwidth}{figs/polysi-vldb2023}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+    \fig{width = 0.70\textwidth}{figs/checker-polysi}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\centerline{性能显著优于其它 SI 检测算法 (在腾讯 TDSQL 开发过程初步测试)}
+
+	\fig{width = 0.60\textwidth}{figs/polysi-runtime}
+  %\#sessions=20, \#txns/session=100, \#ops/txn=15,   keys=10k,  \%read=50\%, distribution=zipfian.
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{center}
+		\polysi{} 以黑盒的方式使用 MonoSAT 求解器
+
+		\vspace{0.30cm}
+		\fig{width = 0.70\textwidth}{figs/solver-blackbox}
+		\vspace{0.30cm}
+
+		未能充分利用 SAT/SMT 搜索框架 (DPLL/CDCL)
+	\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{center}
+		\blue{\bf 当前的探索:} 如何``深度整合 SMT'', 进一步提升算法效率?
+
+		\vspace{0.50cm}
+		\fig{width = 0.70\textwidth}{figs/integrated}
+	\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+  \begin{center}
+		\red{\bf 进行中:} 设计专用的事务一致性理论求解器
+
+	  \fig{width = 0.95\textwidth}{figs/consistency-theory-solver-revised}
+  \end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{center}
+		\fig{width = 1.00\textwidth}{figs/roadmap}
+	\end{center}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%
+\begin{frame}{}
+	\begin{columns}
+		\column{0.60\textwidth}
+		  \fig{width = 1.00\textwidth}{figs/general-program-rejected}
+		\column{0.40\textwidth}
+		  \fig{width = 1.00\textwidth}{figs/tencent-UR-logo}
+			去年已结题
+
+			\vspace{0.30cm}
+			继续与腾讯团队保持合作 (暂无项目支持)
+	\end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%
